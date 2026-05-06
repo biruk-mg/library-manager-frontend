@@ -44,8 +44,8 @@ function Borrowing() {
                                 <tr key={borrow.id}>
                                     <td>{borrow.book?.title || 'N/A'}</td>
                                     <td>{borrow.member?.name || 'N/A'}</td>
-                                    <td>{new Date(borrow.borrowDate).toLocaleDateString()}</td>
-                                    <td>{new Date(borrow.dueDate).toLocaleDateString()}</td>
+                                    <td>{borrow.borrowDate ? new Date(borrow.borrowDate).toLocaleDateString() : 'N/A'}</td>
+                                    <td>{borrow.dueDate ? new Date(borrow.dueDate).toLocaleDateString() : 'N/A'}</td>
                                     <td>
                                         <span style={{
                                             padding: '3px 10px',
