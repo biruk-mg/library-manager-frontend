@@ -7,28 +7,26 @@ import Borrowing from './pages/Borrowing';
 import Genres from './pages/Genres';
 import Staff from './pages/Staff';
 
-console.log('Login:', Login);
-console.log('Dashboard:', Dashboard);
-console.log('Books:', Books);
-console.log('Members:', Members);
-console.log('Borrowing:', Borrowing);
-console.log('Genres:', Genres);
-console.log('Staff:', Staff); 
+function PrivateRoute({ children }) {
+    const token = localStorage.getItem('token');
+    return token ? children : <Navigate to="/login" />;
+}
+
 function App() {
-  return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/login" element={<Login />} />
-        <Route path="/" element={<Navigate to="/login" />} />
-        <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/books" element={<Books />} />
-        <Route path="/members" element={<Members />} />
-        <Route path="/borrows" element={<Borrowing />} />
-        <Route path="/genres" element={<Genres />} />
-        <Route path="/staff" element={<Staff />} />
-      </Routes>
-    </BrowserRouter>
-  )
+    return (
+        <BrowserRouter>
+            <Routes>
+                <Route path="/login" element={<Login />} />
+                <Route path="/" element={<Navigate to="/login" />} />
+                <Route path="/dashboard" element={<PrivateRoute><Dashboard /></PrivateRoute>} />
+                <Route path="/books" element={<PrivateRoute><Books /></PrivateRoute>} />
+                <Route path="/members" element={<PrivateRoute><Members /></PrivateRoute>} />
+                <Route path="/borrows" element={<PrivateRoute><Borrowing /></PrivateRoute>} />
+                <Route path="/genres" element={<PrivateRoute><Genres /></PrivateRoute>} />
+                <Route path="/staff" element={<PrivateRoute><Staff /></PrivateRoute>} />
+            </Routes>
+        </BrowserRouter>
+    );
 }
 
 export default App;
