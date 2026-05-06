@@ -56,7 +56,7 @@ function Members() {
                                     <td>{member.name}</td>
                                     <td>{member.email}</td>
                                     <td>{member.phone || 'N/A'}</td>
-                                    <td>{new Date(member.createdAt).toLocaleDateString()}</td>
+                                    <td>{member.membershipDate ? new Date(member.membershipDate).toLocaleDateString() : 'N/A'}</td>
                                 </tr>
                             ))}
                         </tbody>

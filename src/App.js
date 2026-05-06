@@ -3,10 +3,13 @@ import Login from './pages/Login';
 import Dashboard from './pages/Dashboard';
 import Books from './pages/Books';
 import Members from './pages/Members';
+import Borrowing from './pages/Borrowing';
+
 console.log('Login:', Login);
 console.log('Dashboard:', Dashboard);
 console.log('Books:', Books);
 console.log('Members:', Members);
+console.log('Borrowing:', Borrowing);
 function App() {
   return (
     <BrowserRouter>
@@ -16,6 +19,7 @@ function App() {
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/books" element={<Books />} />
         <Route path="/members" element={<Members />} />
+        <Route path="/borrows" element={<Borrowing />} />
       </Routes>
     </BrowserRouter>
   )
