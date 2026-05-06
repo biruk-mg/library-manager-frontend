@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";  
 import API from "../services/api";
+import './Login.css';
 function Login() {
     const navigate = useNavigate();
     const [email, setEmail] = useState('');
@@ -21,21 +22,25 @@ function Login() {
    };
 
     return (
-        <div className="Login">
+    <div className="login-container">
+        <div className="login-box">
+            <h1>📚 Library</h1>
+            <p>Sign in to your account</p>
             <input 
                 type="email" 
-                placeholder="Enter your email" 
+                placeholder="Email address" 
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
             />
             <input 
                 type="password" 
-                placeholder="Enter your password" 
+                placeholder="Password" 
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
             />
-            <button onClick={handleLogin}>Login</button>
+            <button onClick={handleLogin}>Sign In</button>
         </div>
-    );
+    </div>
+);
 }
 export default Login;
