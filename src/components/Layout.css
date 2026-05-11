@@ -1,0 +1,12 @@
+.app-body {
+    display: flex;
+    padding-top: 56px;
+}
+
+.page-content {
+    margin-left: 200px;
+    flex: 1;
+    padding: 2rem;
+    background: #f8f8f8;
+    min-height: calc(100vh - 56px);
+}

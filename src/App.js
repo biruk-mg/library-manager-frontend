@@ -6,6 +6,7 @@ import Members from './pages/Members';
 import Borrowing from './pages/Borrowing';
 import Genres from './pages/Genres';
 import Staff from './pages/Staff';
+import Profile from './pages/Profile';
 
 function PrivateRoute({ children }) {
     const token = localStorage.getItem('token');
@@ -24,6 +25,7 @@ function App() {
                 <Route path="/borrows" element={<PrivateRoute><Borrowing /></PrivateRoute>} />
                 <Route path="/genres" element={<PrivateRoute><Genres /></PrivateRoute>} />
                 <Route path="/staff" element={<PrivateRoute><Staff /></PrivateRoute>} />
+                <Route path="/profile" element={<PrivateRoute><Profile /></PrivateRoute>} />
             </Routes>
         </BrowserRouter>
     );
